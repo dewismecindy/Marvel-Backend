@@ -8,7 +8,7 @@ app.use(cors());
 
 app.get("/", (req, res) => {
   try {
-    // console.log(process.env.MARVEL_API_KEY); // aoNbSx9f0IWEtt7q
+    // console.log(process.env.MARVEL_API_KEY);
     return res.status(200).json("Bienvenue sur notre serveur Marvel 🍣");
   } catch (error) {
     return res.status(400).json({ error: error.message });
