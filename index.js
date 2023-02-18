@@ -33,7 +33,8 @@ app.get("/characters", async (req, res) => {
 
     res.status(200).json(response.data);
   } catch (error) {
-    return res.status(400).json({ error: error.message });
+    /* return res.status(400).json({ error: error.message }); */
+    console.log(error);
   }
 });
 app.get("/character/:characterId", async (req, res) => {
@@ -43,19 +44,6 @@ app.get("/character/:characterId", async (req, res) => {
     );
 
     return res.status(200).json(response.data);
-  } catch (error) {
-    return res.status(400).json({ error: error.message });
-  }
-});
-
-app.get("/related-comics", async (req, res) => {
-  try {
-    let characterID = req.query.characterID;
-    console.log(characterID);
-    const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/character/${characterID}?apiKey=${process.env.MARVEL_API_KEY}`
-    );
-    res.status(200).json(response.data);
   } catch (error) {
     return res.status(400).json({ error: error.message });
   }
